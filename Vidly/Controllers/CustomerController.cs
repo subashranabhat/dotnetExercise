@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
 
@@ -12,9 +13,6 @@ namespace Vidly.Controllers
         {
 
             var customers = GetCustomers();
-
-            //  var ibra = new Customer { Name = "Ibra", Id = 23 };
-
             return View(customers);
 
         }
@@ -28,8 +26,16 @@ namespace Vidly.Controllers
                 new Customer() {Id= 2, Name = "Mary Williams"}
 
             };
-
             return cust;
+        }
+
+        public ActionResult Details(int id)
+        {
+
+            Customer item = GetCustomers().First(x => x.Id == id);
+
+
+            return View(item);
         }
 
     }

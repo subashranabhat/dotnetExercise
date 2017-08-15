@@ -1,15 +1,23 @@
 ﻿@model IEnumerable<Vidly.Models.Customer>
-<h1>
-    Hello World
-   
-      
-</h1>
 
-@foreach (var customer  in Model)
-{
-    <p> @customer.Id | @customer.Name</p>       
-            
-}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Customers</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer  in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink( customer.Name, "Details","Customer", new {id = customer.Id}, null)      
 
-<P> SDFDSFDSF</P>
+
+                </td>
+            </tr>   
+        }
     
+    </tbody>
+</table>
+
